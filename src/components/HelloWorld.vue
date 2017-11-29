@@ -1,37 +1,49 @@
 <template>
-  <div>
-    <el-button @click="show = !show">Click Me</el-button>
-
-    <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="el-fade-in-linear">
-        <div v-show="show" class="transition-box">.el-fade-in-linear</div>
-      </transition>
-      <transition name="el-fade-in">
-        <div v-show="show" class="transition-box">.el-fade-in</div>
-      </transition>
-    </div>
+  <div class="hello">
+    <el-row :gutter="10">
+      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        <div class="grid-content bg-purple"></div>
+      </el-col>
+      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+        <div class="grid-content bg-purple-light"></div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
-    export default {
-    data: () => ({
-      show: true
-    })
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
   }
+}
 </script>
 
-<style>
-  .transition-box {
-    margin-bottom: 10px;
-    width: 200px;
-    height: 100px;
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  .el-col {
     border-radius: 4px;
-    background-color: #409EFF;
-    text-align: center;
-    color: #fff;
-    padding: 40px 20px;
-    box-sizing: border-box;
-    margin-right: 20px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
   }
 </style>

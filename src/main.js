@@ -3,22 +3,29 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import vueRouter from 'vue-router'
+import Resource from 'vue-resource'
 import '../theme/index.css'
-import ElementUi from 'element-ui'
+import ElementUI from 'element-ui'
 
-Vue.use(ElementUi, {
-	size: 'small'
-})
+import index from './components/index.vue'
 
+Vue.use(ElementUI,{size:'small'})
+Vue.use(vueRouter)
+Vue.use(Resource)
 Vue.config.productionTip = false
 
-
+const _copyRouter = new vueRouter({
+  mode: 'history',
+  base: __dirname,
+  routes: [
+    {
+      path: '/', component: index
+    }
+  ]
+})
 /* eslint-disable no-new */
 new Vue({
-	el: '#app',
-	router,
-	template: '<App/>',
-	components: {
-		App
-	}
-})
+  router:_copyRouter,
+  render:h=>h(App)
+}).$mount( '#app')
